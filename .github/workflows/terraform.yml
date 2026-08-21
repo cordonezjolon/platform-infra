@@ -21,6 +21,10 @@ jobs:
       TF_VAR_region: ${{ secrets.TF_VAR_region }}
       TF_VAR_vpc_name: ${{ secrets.TF_VAR_vpc_name }}
     
+    defaults:
+      run:
+        working-directory: ./terraform
+          
     steps:
       - uses: actions/checkout@v4
       
