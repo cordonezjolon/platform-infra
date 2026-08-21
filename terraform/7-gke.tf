@@ -7,6 +7,9 @@ resource "google_container_cluster" "gke" {
   subnetwork               = google_compute_subnetwork.private.self_link
   networking_mode          = "VPC_NATIVE"
 
+  resource_labels = {
+    environment = "gitops"
+  }
   deletion_protection = false
 
   node_locations = [

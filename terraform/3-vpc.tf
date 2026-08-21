@@ -9,7 +9,6 @@ resource "google_compute_network" "vpc" {
   ]
 }
 
-
 resource "google_compute_route" "default_route" {
   name             = "${var.vpc_name}-default-route"
   network          = google_compute_network.vpc.name
