@@ -19,6 +19,7 @@ jobs:
     env:
       TF_VAR_project_id: ${{ secrets.TF_VAR_project_id }}
       TF_VAR_region: ${{ secrets.TF_VAR_region }}
+      TF_VAR_vpc_name: ${{ secrets.TF_VAR_vpc_name }}
     
     steps:
       - uses: actions/checkout@v3
