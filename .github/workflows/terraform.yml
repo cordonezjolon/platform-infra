@@ -98,7 +98,14 @@ jobs:
         with:
           name: tfplan-${{ steps.branch.outputs.name }}
           path: .
-
+      - name: Check files
+        run: |
+          echo "Current directory:"
+          pwd
+          echo "Files here:"
+          ls -la
+          echo "Files in terraform folder:"
+          ls -la ./terraform/ || echo "no terraform folder"
       - name: Terraform Apply
         run: terraform apply -auto-approve tfplan
 
