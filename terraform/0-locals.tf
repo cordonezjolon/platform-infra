@@ -1,6 +1,6 @@
 locals {
   project_id = var.project_id
-  region = var.region
+  region     = var.region
   apis = [
     "compute.googleapis.com",
     "container.googleapis.com",
