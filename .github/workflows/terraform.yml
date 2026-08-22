@@ -98,9 +98,6 @@ jobs:
         with:
           name: tfplan-${{ steps.branch.outputs.name }}
           path: .
-          
-      - name: Move plan to terraform folder
-        run: mv tfplan ./terraform/tfplan
       - name: Check files
         run: |
           echo "Current directory:"
@@ -110,6 +107,5 @@ jobs:
           echo "Files in terraform folder:"
           ls -la ./terraform/ || echo "no terraform folder"
       - name: Terraform Apply
-        run: terraform apply -auto-approve ./terraform/tfplan
-        working-directory: ./terraform
+        run: terraform apply -auto-approve ../tfplan
 
