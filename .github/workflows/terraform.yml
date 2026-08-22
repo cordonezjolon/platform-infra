@@ -5,6 +5,7 @@ on:
     branches: [ "main", "stage", "develop" ]
   pull_request:
     branches: [ "main", "stage", "develop" ]
+  workflow_dispatch:
 permissions:
   contents: read
 
