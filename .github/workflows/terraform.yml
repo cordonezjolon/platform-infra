@@ -75,7 +75,9 @@ jobs:
     env:
       TF_VAR_project_id: ${{ secrets.TF_VAR_project_id }}
       TF_VAR_region: ${{ secrets.TF_VAR_region }}
-
+    defaults:
+      run:
+        working-directory: terraform
     steps:
       - uses: actions/checkout@v4
 
@@ -97,17 +99,15 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: tfplan-${{ steps.branch.outputs.name }}
-          path: ./terraform
+          path: .
       - name: Check files
         run: |
           echo "Current directory:"
           pwd
           echo "Files here:"
           ls -la
-          echo "Files in terraform folder:"
-          ls -la ./terraform/ || echo "no terraform folder"
       - name: Terraform Apply
-        working-directory: terraform
+        # working-directory: terraform
         run: |
           ls -la
           terraform apply -auto-approve tfplan
