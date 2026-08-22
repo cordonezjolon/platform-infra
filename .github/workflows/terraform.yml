@@ -56,7 +56,7 @@ jobs:
       - name: Upload Plan
         uses: actions/upload-artifact@v4
         with:
-          name: tfplan-${{ github.ref_name }}
+          name: tfplan-${{ steps.branch.outputs.name }}
           path: ./terraform/tfplan
 
   apply:
@@ -96,7 +96,7 @@ jobs:
       - name: Download Plan
         uses: actions/download-artifact@v4
         with:
-          name: tfplan-${{ github.ref_name }}
+          name: tfplan-${{ steps.branch.outputs.name }}
           path: ./terraform/
 
       - name: Terraform Apply
