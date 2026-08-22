@@ -107,5 +107,8 @@ jobs:
           echo "Files in terraform folder:"
           ls -la ./terraform/ || echo "no terraform folder"
       - name: Terraform Apply
-        run: terraform apply -auto-approve tfplan
+        working-directory: terraform
+        run: |
+          ls -la
+          terraform apply -auto-approve tfplan
 
