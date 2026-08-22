@@ -97,7 +97,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: tfplan-${{ steps.branch.outputs.name }}
-          path: .
+          path: ./terraform
       - name: Check files
         run: |
           echo "Current directory:"
@@ -107,5 +107,5 @@ jobs:
           echo "Files in terraform folder:"
           ls -la ./terraform/ || echo "no terraform folder"
       - name: Terraform Apply
-        run: terraform apply -auto-approve ../tfplan
+        run: terraform apply -auto-approve tfplan
 
