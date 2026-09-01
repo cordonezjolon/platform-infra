@@ -5,5 +5,12 @@ resource "helm_release" "argocd" {
   namespace        = "argocd"
   create_namespace = true
 
+  set = [
+    {
+      name  = "configs.params.server\\.insecure"
+      value = "true"
+    }
+  ]
+
   depends_on = [helm_release.cert-manager]
 }
