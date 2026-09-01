@@ -1,3 +1,4 @@
-project_id = "your-gcp-project-id"
-region     = "us-central1"
-vpc_name   = "main"
+project_id             = "your-gcp-project-id"
+region                 = "us-central1"
+vpc_name               = "main"
+doppler_service_token  = ""
