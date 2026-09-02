@@ -15,4 +15,10 @@ variable "vpc_name" {
   description = "VPC name to deploy resources into."
 }
 
+variable "doppler_service_token" {
+  type        = string
+  sensitive   = true
+  description = "Doppler Service Token (project: books-go-api, config: dev) used by the Doppler Kubernetes Operator to sync secrets."
+}
+
 
