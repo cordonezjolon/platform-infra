@@ -44,12 +44,13 @@ resource "kubernetes_secret" "doppler_token" {
   depends_on = [helm_release.doppler_operator]
 }
 
-resource "kubernetes_manifest" "doppler_secret_books_go_api" {
+
+resource "kubernetes_manifest" "doppler_secret_books_go_api_namespace" {
   manifest = {
     apiVersion = "secrets.doppler.com/v1alpha1"
     kind       = "DopplerSecret"
     metadata = {
-      name      = "books-go-api-dopplersecret"
+      name      = "books-go-api-doppler-secret"
       namespace = "doppler-operator-system"
     }
     spec = {
@@ -60,7 +61,7 @@ resource "kubernetes_manifest" "doppler_secret_books_go_api" {
       }
       managedSecret = {
         name      = "books-go-api-secret"
-        namespace = "doppler-operator-system"
+        namespace = "books-api-development"
       }
     }
   }
