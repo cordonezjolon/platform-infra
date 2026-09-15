@@ -21,4 +21,14 @@ variable "doppler_service_token" {
   description = "Doppler Service Token (project: books-go-api, config: dev) used by the Doppler Kubernetes Operator to sync secrets."
 }
 
+variable "environment" {
+  type        = string
+  description = "Environment name (e.g., dev, stage, prod)."
+}
+
+variable "cluster_name" {
+  type        = string
+  description = "GKE cluster name. Set explicitly per environment (renaming forces cluster replacement)."
+}
+
 

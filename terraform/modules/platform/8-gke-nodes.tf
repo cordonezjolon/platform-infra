@@ -21,8 +21,8 @@ resource "google_container_node_pool" "general" {
   node_locations = ["${local.region}-a"]
 
   autoscaling {
-    min_node_count = 1
-    max_node_count = 4
+    min_node_count = 0
+    max_node_count = 0
   }
 
   management {

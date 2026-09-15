@@ -1,5 +1,5 @@
 resource "google_container_cluster" "gke" {
-  name                     = "gke-cluster-gitops"
+  name                     = var.cluster_name
   location                 = local.region
   remove_default_node_pool = true
   initial_node_count       = 1
@@ -8,7 +8,7 @@ resource "google_container_cluster" "gke" {
   networking_mode          = "VPC_NATIVE"
 
   resource_labels = {
-    environment = "gitops"
+    environment = var.environment
   }
   deletion_protection = false
 
