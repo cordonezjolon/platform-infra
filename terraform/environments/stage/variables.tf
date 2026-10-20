@@ -26,4 +26,9 @@ variable "environment" {
   description = "Environment name (e.g., dev, stage, prod)."
 }
 
+variable "cluster_name" {
+  type        = string
+  description = "GKE cluster name. Set explicitly per environment (renaming forces cluster replacement)."
+}
+
 

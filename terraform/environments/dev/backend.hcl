@@ -1,2 +1,2 @@
-bucket = "gitops-gke-tfstate"
+bucket = "gitops-gke-tfstate-n"
 prefix = "terraform/state/dev"

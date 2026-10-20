@@ -50,4 +50,10 @@ resource "google_container_cluster" "gke" {
   #   }
   # }
 
+  # Private nodes need egress (default route + NAT) before they boot,
+  # otherwise CNI images can't be pulled and nodes stay NotReady.
+  depends_on = [
+    google_compute_route.default_route,
+    google_compute_router_nat.nat,
+  ]
 }

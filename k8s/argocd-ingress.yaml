@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: argocd-ingress
+  namespace: argocd
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-stage"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - argocd.35.255.220.46.nip.io
+      secretName: argocd-cert-staging
+  rules:
+    - host: argocd.35.255.220.46.nip.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: argocd-server
+                port:
+                  number: 80

@@ -21,8 +21,8 @@ resource "google_container_node_pool" "general" {
   node_locations = ["${local.region}-a"]
 
   autoscaling {
-    min_node_count = 0
-    max_node_count = 0
+    min_node_count = 1
+    max_node_count = 4
   }
 
   management {
@@ -35,7 +35,7 @@ resource "google_container_node_pool" "general" {
     machine_type = "e2-standard-2"
 
     labels = {
-      env  = "dev"
+      env  = var.environment
       role = "general"
     }
     service_account = google_service_account.gke.email
